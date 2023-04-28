@@ -1,0 +1,14 @@
+- ``ng new``: Genera una aplicación Angular, haciendo uso del Angular CLI. Lo cual creará la estructura de la aplicación en un directorio.
+- ``ng generate``:
+  - ``component``: Crea un nuevo y genérico definición de componente en el proyecto.
+  - (Es una directiva que nos proporciona tanto funcionalidades como lógica a nuestra interfaz)
+  - ``directive``: Crea una nueva y genérica definición de directivas en el proyecto. (instrucciones para manipular el DOM, y agregar funcionalidades a elementos HTML)
+  - ``enum``: Genera una nueva definición genérica de enum en el proyecto.
+(Es una lista de nombres de constantes en ``TypeScript``, y pueden ser tanto string como números)
+  - ``guard``: Genera una nueva definición genérica de guarda de ruta en el proyecto ( Son interfaces que permiten proteger las rutas e indican al enrutador si se permitirá la navegación a una ruta o no)
+  - ``interface``:  Genera una nueva definición genérica de interfaz de ruta en el proyecto. (Conjunto de propiedades y métodos que se han de implementar en una clase)
+  - ``pipe``:  Genera una nueva definición genérica de tubería de ruta en el proyecto. (Es una herramienta de Angular que nos permite transformar visualmente la información, por ejemplo, cambiar un texto a mayúsculas o minúsculas, o darle formato de fecha y hora)
+  - ``service``: Genera un nuevo servicio en el proyecto. (Los servicios son clases que se utilizan para compartir datos o funcionalidad entre diferentes componentes de la aplicación).
+- ``ng serve``: Levanta la aplicación en modo desarrollo, utilizando ``webpack`` y ``live-reload``, de modo que todas las modificaciones que se realizan, se reflejan automáticamente en el navegador.
+- ``ng test``: Se utiliza para ejecutrar las pruebas unitarias de la aplicación.
+- ``ng version``: Nos muestra la versión que tenemos instalada de Angular CLI
