@@ -11,18 +11,23 @@
 <body>
     <div class="body">
         <div class="articles">
-            <div class="article" [ngStyle]="{'visibility': isOnSale ? 'visible' : 'hidden'}">
-                <div class="row">
-                    <img src={{imageUrl}} alt="" style="width: 20vw;">
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label>{{name}}</label>
+
+            <div *ngFor="let art of articles">
+
+                <div class="article" [ngStyle]="{'visibility': art.isOnSale ? 'visible' : 'hidden'}">
+                    <div class="row">
+                        <img src={{art.imageUrl}} alt="" style="width: 20vw;">
                     </div>
-                    <div class="col">
-                        <label>{{price}}</label>
+                    <div class="row">
+                        <div class="col">
+                            <label>{{art.name}}</label>
+                        </div>
+                        <div class="col">
+                            <label>{{art.price}}</label>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
