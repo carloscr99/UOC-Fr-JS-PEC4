@@ -26,6 +26,17 @@
                             <label>{{art.price}}</label>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col">
+                            <button (click)="art.decreaseCart()">-</button>
+                        </div>
+                        <div class="col">
+                            {{art.quantityInCart}}
+                        </div>
+                        <div class="col">
+                            <button (click)="art.increaseCart()">+</button>
+                        </div>
+                    </div>
                 </div>
 
             </div>

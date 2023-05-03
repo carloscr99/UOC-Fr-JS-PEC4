@@ -51,6 +51,13 @@ export class Article implements OnInit, IArticle {
 
   }
 
+  increaseCart(){
+    this.quantityInCart++;
+  }
+
+  decreaseCart(){
+    this.quantityInCart--;
+  }
 
 
 
