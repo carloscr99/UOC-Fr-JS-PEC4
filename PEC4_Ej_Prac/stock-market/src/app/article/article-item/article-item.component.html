@@ -14,9 +14,9 @@
 
             <div *ngFor="let art of articles">
 
-                <div class="article" [ngStyle]="{'visibility': art.isOnSale ? 'visible' : 'hidden'}">
+                <div class="article" [ngStyle]="{'background-color': art.isOnSale ? 'transparet' : '#49af4c'}">
                     <div class="row">
-                        <img src={{art.imageUrl}} alt="" style="width: 20vw;">
+                        <img src={{art.imageUrl}} style="width: 20vw;">
                     </div>
                     <div class="row">
                         <div class="col">
@@ -26,15 +26,15 @@
                             <label>{{art.price}}</label>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row buttons">
                         <div class="col">
-                            <button (click)="art.decreaseCart()">-</button>
+                            <button class="decrease" [disabled]="art.quantityInCart <= 0 ? true : false" (click)="art.decreaseCart()">-</button>
                         </div>
                         <div class="col">
                             {{art.quantityInCart}}
                         </div>
                         <div class="col">
-                            <button (click)="art.increaseCart()">+</button>
+                            <button class="increase" (click)="art.increaseCart()">+</button>
                         </div>
                     </div>
                 </div>

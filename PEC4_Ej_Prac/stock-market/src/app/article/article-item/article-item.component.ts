@@ -43,7 +43,7 @@ export class Article implements OnInit, IArticle {
     articulo.name = 'Pan';
     articulo.imageUrl = 'https://images.unsplash.com/photo-1559811814-e2c57b5e69df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80';
     articulo.price = 23;
-    articulo.isOnSale = true;
+    articulo.isOnSale = false;
     articulo.quantityInCart = 0;
 
     this.articles.push(articulo);
