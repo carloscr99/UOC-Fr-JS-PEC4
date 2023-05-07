@@ -34,3 +34,7 @@ button.decrease{
 button.increase{
     background-color: green;
 }
+
+label.outOfStock {
+    color: gray;
+}
