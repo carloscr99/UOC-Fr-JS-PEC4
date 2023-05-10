@@ -14,8 +14,6 @@ export class ArticleListComponent implements OnInit {
   
   
   ngOnInit(){
-    console.log('Hola');
-
 
     let articulo: Article = new Article();
 
@@ -43,7 +41,7 @@ export class ArticleListComponent implements OnInit {
     articulo.name = 'Galletas';
     articulo.imageUrl = 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80';
     articulo.price = 3.20;
-    articulo.isOnSale = false;
+    articulo.isOnSale = true;
     articulo.quantityInCart = 0;
 
     this.articles.push(articulo);
