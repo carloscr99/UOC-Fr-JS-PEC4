@@ -12,34 +12,30 @@
     <div class="body">
         <div class="articles">
 
-            <div *ngFor="let art of articles">
-
-                <div class="article" [ngStyle]="{'background-color': art.isOnSale ? 'transparet' : 'rgb(255 173 154)'}">
+                <div class="article" [ngStyle]="{'background-color': article.isOnSale ? 'transparet' : 'rgb(255 173 154)'}">
                     <div class="row">
-                        <img src={{art.imageUrl}} style="width: 20vw;">
+                        <img src={{article.imageUrl}} style="width: 20vw;">
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label>{{art.name}}</label>
+                            <label>{{article.name}}</label>
                         </div>
                         <div class="col">
-                            <label [ngClass]="art.isOnSale ? '' : 'outOfStock'">{{art.price}}</label>
+                            <label [ngClass]="article.isOnSale ? '' : 'outOfStock'">{{article.price}}</label>
                         </div>
                     </div>
-                    <div *ngIf="art.isOnSale" class="row buttons">
+                    <div *ngIf="article.isOnSale" class="row buttons">
                         <div class="col">
-                            <button class="decrease" [disabled]="art.quantityInCart <= 0 ? true : false" (click)="art.decreaseCart()">-</button>
+                            <button class="decrease" [disabled]="article.quantityInCart <= 0 ? true : false" (click)="article.decreaseCart()">-</button>
                         </div>
                         <div class="col">
-                            {{art.quantityInCart}}
+                            {{article.quantityInCart}}
                         </div>
                         <div class="col">
-                            <button class="increase" (click)="art.increaseCart()">+</button>
+                            <button class="increase" (click)="article.increaseCart()">+</button>
                         </div>
                     </div>
                 </div>
-
-            </div>
         </div>
     </div>
 </body>
