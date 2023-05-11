@@ -1,10 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy  } from '@angular/core';
 import { Article } from './Article';
 import { ArticleQuantityChange } from './ArticleQuantityChange';
 
 @Component({
   selector: 'article-item',
-  template:`
+  template: `
   <div class="articles">
 
     <div class="article" [ngStyle]="{'background-color': article.isOnSale ? 'transparet' : 'rgb(255 173 154)'}">
@@ -21,13 +21,13 @@ import { ArticleQuantityChange } from './ArticleQuantityChange';
         </div>
         <div *ngIf="article.isOnSale" class="row buttons">
             <div class="col">
-                <button class="decrease" [disabled]="article.quantityInCart <= 0 ? true : false" (click)="article.decreaseCart()">-</button>
+                <button class="decrease" [disabled]="article.quantityInCart <= 0 ? true : false" (click)="onArticleChanged($event, 'decrease')">-</button>
             </div>
             <div class="col">
                 {{article.quantityInCart}}
             </div>
             <div class="col">
-                <button class="increase" (click)="onArticleChanged($event)">+</button>
+                <button class="increase" (click)="onArticleChanged($event, 'increase')">+</button>
             </div>
         </div>
     </div>
@@ -75,9 +75,8 @@ import { ArticleQuantityChange } from './ArticleQuantityChange';
     label.outOfStock {
         color: gray;
     }
-      
-
-  `]
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 
@@ -85,12 +84,12 @@ export class ArticleItemComponent {
 
   public newArticle: ArticleQuantityChange;
 
-  @Input()  public article!: Article;
+  @Input() public article!: Article;
 
   @Output() private articleChanged!: EventEmitter<ArticleQuantityChange>;
 
 
-  constructor() { 
+  constructor() {
 
     this.newArticle = new ArticleQuantityChange();
 
@@ -98,10 +97,16 @@ export class ArticleItemComponent {
 
   }
 
-  onArticleChanged(event: any) {
-    
+  onArticleChanged(event: any, action: string) {
+
+
     this.newArticle.art = this.article;
-    this.newArticle.quantity = this.article.quantityInCart;
+
+    if (action === 'increase')
+      this.newArticle.quantity = this.article.quantityInCart++;
+    else
+      this.newArticle.quantity = this.article.quantityInCart--
+
 
     this.articleChanged.emit(this.newArticle);
 

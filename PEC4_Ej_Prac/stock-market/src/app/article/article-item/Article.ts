@@ -1,5 +1,6 @@
 export class Article {
 
+    public id: number;
     public name: string;
     public imageUrl: string;
     public price: number;
@@ -7,6 +8,7 @@ export class Article {
     public quantityInCart: number;
 
     constructor() {
+        this.id = 0;
         this.name = '';
         this.imageUrl = '';
         this.price = 0;
@@ -14,13 +16,5 @@ export class Article {
         this.quantityInCart = 0;
     }
 
-
-    increaseCart() {
-        this.quantityInCart++;
-    }
-
-    decreaseCart() {
-        this.quantityInCart--;
-    }
 
 }
