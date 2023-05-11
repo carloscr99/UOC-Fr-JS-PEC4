@@ -30,4 +30,6 @@ En cuanto de dificultades encontradas, me he encontrado las siguientes:
 
 Por lo que finalmente lo he hecho como se puede ver en el código.
 
-2. Mostrar multiples artículos, por lo que necesitaba almacenar la información en un Array, para luego recorrerlo y mostrar la información en el front.
+2. Me han parecido confusas las imágenes del último apartado del ejercicio 3, dado que da a entender que se han de visualizar dos artículos, por lo que ya en este apartado había creado un array con dos productos, y mostrados con un ``ngFor``, hasta que he visto en el ejercicio 7 que había que crear un ``article-list`` y recorrer un array ahí, por lo que he modificado el código.
+
+3. Siguiendo con este ejercicio, en el 3r apartado, no entiendo el porque del objeto ``ArticleQuantityChange``, dado que el ``Article``, ya contiene una propiedad quantityInCart, por lo que bajo mi punto de vista, lo veo innecesario y redundante

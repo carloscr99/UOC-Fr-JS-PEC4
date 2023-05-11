@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../article-item/Article';
+import { ArticleQuantityChange } from '../article-item/ArticleQuantityChange';
 
 @Component({
   selector: 'article-list',
@@ -10,10 +11,20 @@ export class ArticleListComponent implements OnInit {
 
   
   articles: Article[] = new Array<Article>();
+  public articleQuantity: ArticleQuantityChange;
 
-  
+  constructor(){
+    
+    this.articleQuantity = new ArticleQuantityChange();
+    
+  }
+
+  onArticleChanged(art: ArticleQuantityChange){
+      console.log("Hola desde el article list");
+  }
   
   ngOnInit(){
+
 
     let articulo: Article = new Article();
 

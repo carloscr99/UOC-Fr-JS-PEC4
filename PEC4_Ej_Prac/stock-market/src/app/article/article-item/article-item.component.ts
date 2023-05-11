@@ -1,5 +1,6 @@
-import { Component, Input  } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Article } from './Article';
+import { ArticleQuantityChange } from './ArticleQuantityChange';
 
 @Component({
   selector: 'article-item',
@@ -26,7 +27,7 @@ import { Article } from './Article';
                 {{article.quantityInCart}}
             </div>
             <div class="col">
-                <button class="increase" (click)="article.increaseCart()">+</button>
+                <button class="increase" (click)="onArticleChanged($event)">+</button>
             </div>
         </div>
     </div>
@@ -82,9 +83,30 @@ import { Article } from './Article';
 
 export class ArticleItemComponent {
 
+  public newArticle: ArticleQuantityChange;
+
   @Input()  public article!: Article;
 
-  constructor() { }
+  @Output() private articleChanged!: EventEmitter<ArticleQuantityChange>;
+
+
+  constructor() { 
+
+    this.newArticle = new ArticleQuantityChange();
+
+    this.articleChanged = new EventEmitter<ArticleQuantityChange>();
+
+  }
+
+  onArticleChanged(event: any) {
+    
+    this.newArticle.art = this.article;
+    this.newArticle.quantity = this.article.quantityInCart;
+
+    this.articleChanged.emit(this.newArticle);
+
+
+  }
 
 
 }
